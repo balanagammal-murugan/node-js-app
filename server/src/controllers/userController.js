@@ -13,6 +13,7 @@ const getUsers = (req, res) => {
 const addUser = (req, res) => {
   const errors = validationResult(req);
   if (errors.array().length > 0) {
+      res.statusCode = 400;
       res.send(errors.array());
   } else {
       const user = {
@@ -41,6 +42,7 @@ const deleteUser = (req,res) => {
 const updateUser = (req,res) => {
   const errors = validationResult(req);
   if (errors.array().length > 0) {
+      res.statusCode = 400;
       res.send(errors.array());
   } else {
       const user = {
