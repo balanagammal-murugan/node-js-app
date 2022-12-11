@@ -9,7 +9,7 @@ router.post('/user',
             body('name').not().isEmpty().escape(),
             body('role').not().isEmpty().escape(),
             userController.addUser);
-router.put('/user', 
+router.put('/user/:id', 
             body('email').isEmail().normalizeEmail(),
             body('name').not().isEmpty().escape(),
             body('role').not().isEmpty().escape(),

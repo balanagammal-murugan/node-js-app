@@ -48,9 +48,9 @@ const updateUser = (req,res) => {
           name: req.body.name,
           role: req.body.role
       };
-      const sqlQuery = 'UPDATE users SET ?';
+      const sqlQuery = "UPDATE users SET ? WHERE id = ?"
 
-      database.query(sqlQuery, user, (err, row) => {
+      database.query(sqlQuery, [user, parseInt(req.params.id, 10)], (err, row) => {
           if (err) throw err;
           res.send('User updated successfully!');
       });
